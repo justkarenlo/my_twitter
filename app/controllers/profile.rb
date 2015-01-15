@@ -8,6 +8,10 @@ get '/profile' do
 end
 
 post '/profile/new' do
-  @tweet = Tweet.new(params[:tweet])
-  redirect '/profile'
+  if user_logged_in?
+    @tweet = Tweet.new(params[:tweet])
+    redirect '/profile'
+  else
+    redirect '/login'
+  end
 end
