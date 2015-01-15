@@ -6,6 +6,11 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
 # Require gems we care about
+
+###charles added this on 1/15/15
+require 'bcrypt'
+###
+
 require 'rubygems'
 
 require 'uri'
