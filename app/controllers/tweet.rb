@@ -1,5 +1,5 @@
 get "/" do
-  if session['user_id'] != nil
+  if user_logged_in?
     @tweets = Tweet.all
     erb :"/tweets/new"
   else

@@ -1,5 +1,5 @@
 get '/profile' do
-  if session['user_id'] != nil
+  if user_logged_in?
   @user = User.find(session['user_id'])
   erb :'profile/index'
   else
