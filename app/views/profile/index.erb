@@ -5,10 +5,11 @@
     <%= @user.email %>
   </div>
 
-  <form action="/profile/new" method="post">
+  <form action="/profile/new" method="post" axlength="140">
   <input type="text" name="tweet[content]" value="">
+  <input type="submit" value="Tweet">
 
-
+<br>
 
   <div>
     <% if @user.tweets != nil %>
@@ -20,5 +21,7 @@
     <% end %>
   </div>
 
+  <p>Done with all the fun?</p>
+  <a href="/logout">Log Out</a>
 
 </div>

@@ -1,6 +1,10 @@
 get '/profile' do
+  if session['user_id'] != nil
   @user = User.find(session['user_id'])
   erb :'profile/index'
+  else
+    redirect '/login'
+  end
 end
 
 
