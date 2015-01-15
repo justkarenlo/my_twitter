@@ -1,0 +1,24 @@
+<div>
+
+  <div>
+    <h3>Profile for:</h3>
+    <%= @user.email %>
+  </div>
+
+  <form action="/profile/new" method="post">
+  <input type="text" name="tweet[content]" value="">
+
+
+
+  <div>
+    <% if @user.tweets != nil %>
+      <% @user.tweets.each do |tweet| %>
+      <p><%= tweet.content %></p>
+      <% end %>
+    <% else %>
+      <p>You have no tweets currently, why don't you go and make one right now...</p>
+    <% end %>
+  </div>
+
+
+</div>
