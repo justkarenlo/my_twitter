@@ -1,4 +1,3 @@
-
 def login
   @user = User.find_by_email(params['email'])
   p @user.password
@@ -9,4 +8,8 @@ def login
   else
     return false
   end
+end
+
+def user_logged_in?
+  session['user_id'] != nil
 end
