@@ -7,7 +7,6 @@ get '/profile' do
   end
 end
 
-
 post '/profile/new' do
   @tweet = Tweet.new(params[:tweet])
   redirect '/profile'

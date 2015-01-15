@@ -1,6 +1,10 @@
 get "/" do
- @tweets = Tweet.all
-erb :"/tweets/new" 
+  if session['user_id'] != nil
+    @tweets = Tweet.all
+    erb :"/tweets/new"
+  else
+    redirect '/login'
+  end
 end
 
 get "/tweets/new" do
@@ -10,7 +14,7 @@ end
 
 get "/tweets/:id" do
 	@tweet = Tweet.find(params[:id])
-erb :"/tweets/show" 
+erb :"/tweets/show"
 end
 
 
