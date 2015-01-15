@@ -26,6 +26,3 @@ post '/logout' do
   redirect '/'
 end
 
-get '/' do
-  "stand in for main page"
-end
