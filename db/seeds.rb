@@ -1,5 +1,3 @@
-require 'Faker'
-
 
 bob = User.create(email:'bob@help.com', password: '123')
 john = User.create(email: 'john@john.com', password: '123')
