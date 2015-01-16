@@ -24,8 +24,17 @@
       <%= erb :'/partials/search' %>
 
     <br>
+    <br>
 
     <div>
+      <div>
+        <% if @profile_owner.email == @user.email %>
+          <%= erb :'/partials/feed' %>
+        <% end %>
+      </div>
+
+
+
       <p>Tweets by: <%= @profile_owner.email %></p>
 
       <% if @profile_owner.tweets != nil %>
@@ -37,6 +46,8 @@
       <% end %>
     </div>
 
+    <br>
+    <br>
 
   </div>
 
