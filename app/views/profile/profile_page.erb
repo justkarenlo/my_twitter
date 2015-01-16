@@ -44,7 +44,7 @@
     You are following:
     <% @profile_owner.leaders.each do |leader|  %>
     <ul>
-      <li> <a href="<%= "users/#{leader.id}" %>"> <%= leader.leaders_email %> </a> </li>
+      <li> <a href="/users/<%= "#{leader.leader_id}" %>"> <%= leader.leaders_email %> </a> </li>
     </ul>
     <% end %>
   </div>
@@ -54,7 +54,7 @@
     People following you:
     <% @profile_owner.followers.each do |follower|  %>
     <ul>
-      <li> <a href="<%= "users/#{follower.id}" %>"> <%= follower.followers_email %> </a> </li>
+      <li> <a href="/users/<%= "#{follower.follower_id}" %>"> <%= follower.followers_email %> </a> </li>
     </ul>
     <% end %>
   </div>
