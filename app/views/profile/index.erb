@@ -21,7 +21,28 @@
     <% end %>
   </div>
 
+  <div>
+    You are following:
+    <% @user.leaders.each do |leader|  %>
+    <ul>
+      <li> <%= leader.leaders_email %> </li>
+    </ul>
+    <% end %>
+  </div>
+  <br>
+
+  <div>
+    People following you:
+    <% @user.followers.each do |follower|  %>
+    <ul>
+      <li> <%= follower.followers_email %> </li>
+    </ul>
+    <% end %>
+  </div>
+  <br>
+
   <p>Done with all the fun?</p>
   <a href="/logout">Log Out</a>
+
 
 </div>
