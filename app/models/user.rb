@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :tweets
+  has_many :followers, :foreign_key => 'leader_id', :class_name => "Follower"
+  has_many :leaders, :foreign_key => 'follower_id', :class_name => "Follower"
 
   validates :email, uniqueness: true
 
