@@ -4,7 +4,7 @@ end
 
 post '/login' do
   if login
-    redirect '/'
+    redirect '/profile'
   else
     erb :'login/login'
   end

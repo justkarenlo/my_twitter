@@ -19,8 +19,16 @@ get '/follow/:id' do
 
     redirect "/users/#{session['user_id']}"
   end
+
 end
 
+get '/search' do
+  @result = User.find_by_email(params[:email])
+
+
+  erb :'/profile/search_results'
+
+end
 ### I don't think this actually works right now. ctg ###
 # post '/profile/new' do
 #   if user_logged_in?

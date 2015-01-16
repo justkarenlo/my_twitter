@@ -2,7 +2,10 @@ get "/" do
   @token = user_logged_in?
   @tweets = Tweet.all
 
-  erb :index
+  #OLD WAY
+  # erb :index
+  #FORCE DIRECTLY TO LOGIN
+  redirect '/login'
 end
 
 get '/logout' do
