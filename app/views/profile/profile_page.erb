@@ -3,22 +3,35 @@
   <div>
     <h3>Profile for:<%= @profile_owner.email %>  </h3>
     <p> CURRENT USER: <%= @user.email %> </p>
-  </div>
+    <br>
+    <% if @profile_owner.email == @user.email %>
+      <p> <a href=""> Edit </a> </p>
 
-  <form action="/tweets/new" method="post" axlength="140">
-  <input type="text" name="tweet[content]" value="">
-  <input type="submit" value="Tweet">
+      <br>
 
-<br>
-
-  <div>
-    <% if @profile_owner.tweets != nil %>
-      <% @profile_owner.tweets.each do |tweet| %>
-      <p><%= tweet.content %></p>
-      <% end %>
-    <% else %>
-      <p>You have no tweets currently, why don't you go and make one right now...</p>
+      </div>
+        <form action="/tweets/new" method="post" axlength="140">
+          <input type="text" name="tweet[content]" value="">
+          <input type="submit" value="Tweet">
+        </form>
+      <div>
     <% end %>
+
+    <br>
+
+    <div>
+      <p>Tweets by: <%= @profile_owner.email %></p>
+
+      <% if @profile_owner.tweets != nil %>
+        <% @profile_owner.tweets.reverse.each do |tweet| %>
+          <p><%= tweet.content %></p>
+        <% end %>
+      <% else %>
+        <p>You have no tweets currently, why don't you go and make one right now...</p>
+      <% end %>
+    </div>
+
+
   </div>
 
   <div>
