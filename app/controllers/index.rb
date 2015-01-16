@@ -3,7 +3,8 @@ get "/" do
   @tweets = Tweet.all
 
   if user_logged_in?
-    redirect '/profile'
+    @user = User.find(session['user_id'])
+    erb :index
   else
     redirect '/login'
   end
