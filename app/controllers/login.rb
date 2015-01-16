@@ -1,8 +1,9 @@
 get '/login' do
+  get_json
   erb :'login/login'
 end
 
-post '/login' do
+post '/login' do  
   if login
     redirect '/'
   else

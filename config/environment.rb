@@ -15,14 +15,14 @@ require 'rubygems'
 
 require 'uri'
 require 'pathname'
+require 'json'
 
 require 'pg'
 require 'active_record'
 require 'logger'
-
+require 'rickshaw'
 require 'sinatra'
 require "sinatra/reloader" if development?
-
 require 'erb'
 
 # Some helper constants for path-centric logic

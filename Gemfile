@@ -12,7 +12,8 @@ gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 
 gem 'rake'
-
+gem 'rickshaw'
+gem 'json'
 gem 'shotgun'
 gem 'bcrypt'
 group :test do

@@ -1,6 +1,7 @@
 get '/profile' do
   if user_logged_in?
   @user = User.find(session['user_id'])
+     @hash_email = (@user.email).to_md5
   erb :'profile/index'
   else
     redirect '/login'
@@ -15,3 +16,5 @@ post '/profile/new' do
     redirect '/login'
   end
 end
+
+

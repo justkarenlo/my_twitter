@@ -2,10 +2,11 @@
 
   <div>
     <h3>Profile for:</h3>
-    <%= @user.email %>
+    <img src="http://www.gravatar.com/avatar/<%= @hash_email %>?s=200"><br>
+    <%= @user.email %><br><br>
   </div>
 
-  <form action="/profile/new" method="post" axlength="140">
+  <form action="/profile/new" method="post" maxlength="140">
   <input type="text" name="tweet[content]" value="">
   <input type="submit" value="Tweet">
 
@@ -20,6 +21,8 @@
       <p>You have no tweets currently, why don't you go and make one right now...</p>
     <% end %>
   </div>
+
+
 
   <p>Done with all the fun?</p>
   <a href="/logout">Log Out</a>
