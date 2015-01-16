@@ -1,40 +1,40 @@
 <div>
 
-  <div>
-    <h3>Profile for:<%= @profile_owner.email %>  </h3>
-    <p> CURRENT USER: <%= @user.email %> </p>
-    <br>
-    <% if @profile_owner.email == @user.email %>
-      <p> <a href=""> Edit </a> </p>
+  <nav>
+    <div>
+      <h3>Profile for:<%= @profile_owner.email %>  </h3>
 
       <br>
+      <% if @profile_owner.email == @user.email %>
+      <br>
 
-      </div>
-      Make a tweet:
-        <form action="/tweets/new" method="post" axlength="140">
+      <div class="new_tweet">
+        Make a tweet:
+        <form action="/tweets/new" method="post" maxlength="140">
           <input type="text" name="tweet[content]" value="">
           <input type="submit" value="Tweet">
         </form>
+    </div>
       <div>
     <% else %>
       <a href="/follow/<%= "#{@profile_owner.id}" %>"> +Follow </a>
     <% end %>
 
+      </div>
     <br>
+    <br>
+    <div class="search_bar">
       <%= erb :'/partials/search' %>
+    </div>
+    </nav>
 
-    <br>
-    <br>
-
+  <div class="newsfeed">
     <div>
       <div>
         <% if @profile_owner.email == @user.email %>
           <%= erb :'/partials/feed' %>
         <% end %>
       </div>
-
-
-
       <p>Tweets by: <%= @profile_owner.email %></p>
 
       <% if @profile_owner.tweets != nil %>
@@ -45,6 +45,7 @@
         <p>You have no tweets currently, why don't you go and make one right now...</p>
       <% end %>
     </div>
+  </div>
 
     <br>
     <br>
