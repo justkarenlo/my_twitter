@@ -3,7 +3,7 @@ class CreateTweets < ActiveRecord::Migration
     create_table :tweets do |t|
       t.string :content
       t.integer :user_id
-      t.integer :tweet_parent_id
+      t.integer :parent_id
 
       t.timestamps
     end
