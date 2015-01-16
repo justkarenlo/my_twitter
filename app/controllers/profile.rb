@@ -5,11 +5,11 @@ end
 get '/users/:id' do
   if user_logged_in?
     @user = User.find(session['user_id'])
+    @profile_owner = User.find(params[:id])
+    erb :'profile/profile_page'
   else
-    @user = User.new(email: 'Not Logged In')
+    erb :'login/login'
   end
-  @profile_owner = User.find(params[:id])
-  erb :'profile/profile_page'
 end
 
 get '/follow/:id' do

@@ -1,6 +1,7 @@
 html {
   font-family: Georgia;
   background-color:  #c0deed;
+  position: relative;
 }
 
 
@@ -13,12 +14,41 @@ html {
 
 /* Login & Register */
 .center {
-  /*position: fixed;*/
-  left: 200px;
+  position: relative;
   text-align: center;
   border-radius: 10px;
   background-color: white;
+  left: 35%;
+  right: 25%;
   width: 300px;
   padding: 20px;
 }
 
+
+
+/* Profile */
+nav {
+  background-color: white;
+  padding-bottom: 10px;
+}
+
+nav div {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.newsfeed {
+  background-color: white;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  word-wrap: break-word;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+#twitter_feed {
+  text-align: center;
+}
