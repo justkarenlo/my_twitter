@@ -1,6 +1,7 @@
 html {
   font-family: Georgia;
   background-color:  #c0deed;
+  position: relative;
 }
 
 
@@ -13,11 +14,12 @@ html {
 
 /* Login & Register */
 .center {
-  /*position: fixed;*/
-  left: 200px;
+  position: relative;
   text-align: center;
   border-radius: 10px;
   background-color: white;
+  left: 35%;
+  right: 25%;
   width: 300px;
   padding: 20px;
 }
