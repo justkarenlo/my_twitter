@@ -14,11 +14,11 @@ Tweet.create(content: "appz", user_id: bob.id)
 Tweet.create(content: "hey", user_id: john.id)
 Tweet.create(content: "bye", user_id: john.id)
 
-Follower.create(leader_id: 2, follower_id: 3)
-Follower.create(leader_id: 2, follower_id: 4)
-Follower.create(leader_id: 2, follower_id: 5)
-Follower.create(leader_id: 2, follower_id: 6)
-Follower.create(leader_id: 1, follower_id: 6)
+# Follower.create(leader_id: 2, follower_id: 3)
+# Follower.create(leader_id: 2, follower_id: 4)
+# Follower.create(leader_id: 2, follower_id: 5)
+# Follower.create(leader_id: 2, follower_id: 6)
+# Follower.create(leader_id: 1, follower_id: 6)
 
 
 

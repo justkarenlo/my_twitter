@@ -12,6 +12,15 @@ get '/users/:id' do
   erb :'profile/profile_page'
 end
 
+get '/follow/:id' do
+  if user_logged_in?
+    @user = User.find(session['user_id'])
+    @user.follow(params[:id])
+
+    redirect "/users/#{session['user_id']}"
+  end
+end
+
 ### I don't think this actually works right now. ctg ###
 # post '/profile/new' do
 #   if user_logged_in?
