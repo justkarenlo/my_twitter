@@ -1,0 +1,24 @@
+html {
+  font-family: Georgia;
+  background-color:  #c0deed;
+}
+
+
+/* On all pages layout.erb */
+
+.twitter {
+  text-align: center;
+  font-family: Permanent Marker;
+}
+
+/* Login & Register */
+.center {
+  /*position: fixed;*/
+  left: 200px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+  width: 300px;
+  padding: 20px;
+}
+
