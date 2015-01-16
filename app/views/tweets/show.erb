@@ -1,12 +1,21 @@
 <h2> Twitter </h2>
 
 <a href="/tweets/new">Send a new Tweet</a><br><br>
+<% if @tweet.parent_id != nil %>
+  <p><%= @tweet.user.email %> retweeted</p>
+
+<%= Tweet.find(@tweet.parent_id).user.email %> originally posted:
+<% end %>
 
 <a href="/tweets/<%= @tweet.id %>"><%= @tweet.content %></a>
 
+<form action="/retweet" method="post">
+  <input type="hidden" name="content" value="<%= @tweet.content %>">
+  <input type="hidden" name="parent_id" value="<%= @tweet.id %>">
+  <input type="submit" value="retweet">
+</form>
 
 
 <br>
 <br>
 <a href="/logout">Log Out</a>
-

@@ -34,3 +34,13 @@ post "/tweets" do
     redirect '/login'
   end
 end
+
+post "/retweet" do
+  if user_logged_in?
+    tweet = Tweet.new(content: params[:content], user_id: session['user_id'], parent_id: params[:parent_id])
+    tweet.save
+    redirect '/'
+  else
+    redirect '/login'
+  end
+end
