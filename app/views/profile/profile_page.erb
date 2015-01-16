@@ -1,8 +1,8 @@
 <div>
 
   <div>
-    <h3>Profile for:</h3>
-    <%= @user.email %>
+    <h3>Profile for:<%= @profile_owner.email %>  </h3>
+    <p> CURRENT USER: <%= @user.email %> </p>
   </div>
 
   <form action="/tweets/new" method="post" axlength="140">
@@ -12,8 +12,8 @@
 <br>
 
   <div>
-    <% if @user.tweets != nil %>
-      <% @user.tweets.each do |tweet| %>
+    <% if @profile_owner.tweets != nil %>
+      <% @profile_owner.tweets.each do |tweet| %>
       <p><%= tweet.content %></p>
       <% end %>
     <% else %>
@@ -23,9 +23,9 @@
 
   <div>
     You are following:
-    <% @user.leaders.each do |leader|  %>
+    <% @profile_owner.leaders.each do |leader|  %>
     <ul>
-      <li> <%= leader.leaders_email %> </li>
+      <li> <a href="<%= "users/#{leader.id}" %>"> <%= leader.leaders_email %> </a> </li>
     </ul>
     <% end %>
   </div>
@@ -33,9 +33,9 @@
 
   <div>
     People following you:
-    <% @user.followers.each do |follower|  %>
+    <% @profile_owner.followers.each do |follower|  %>
     <ul>
-      <li> <%= follower.followers_email %> </li>
+      <li> <a href="<%= "users/#{follower.id}" %>"> <%= follower.followers_email %> </a> </li>
     </ul>
     <% end %>
   </div>
