@@ -10,6 +10,10 @@ post '/login' do
   end
 end
 
+get '/register' do
+  erb :'login/register'
+end
+
 post '/register' do
   new_user = User.new(email: params['email'], password: params['password'])
   if new_user.save
