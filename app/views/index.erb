@@ -1,12 +1,20 @@
 <h2> Twitter </h2>
 
+<% if @token %>
 <a href="/profile">View Profile</a>
 <br>
+<a href="/logout">Log Out</a>
 <br>
-<a href="/">All Tweets</a><br><br>
+<br>
+<% else %>
+<a href="/login">Login or Register</a>
+<% end %>
 
-<form action="/tweets" method="post" axlength="140">
-	<input type="hidden" name="_method" method="PUT">
+<br>
+<br>
+
+<form action="/tweets/new" method="post" axlength="140">
+  <input type="hidden" name="_method" method="PUT">
   New Tweet: <input type="text" name="tweet[content]"> <br><br>
   <input type="submit" value="Tweet"><br>
 </form>
@@ -20,4 +28,4 @@
 
 <br>
 <br>
-<a href="/logout">Log Out</a>
+

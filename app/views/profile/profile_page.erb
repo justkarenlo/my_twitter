@@ -1,0 +1,67 @@
+<div>
+
+  <div>
+    <h3>Profile for:<%= @profile_owner.email %>  </h3>
+    <p> CURRENT USER: <%= @user.email %> </p>
+    <br>
+    <% if @profile_owner.email == @user.email %>
+      <p> <a href=""> Edit </a> </p>
+
+      <br>
+
+      </div>
+      Make a tweet:
+        <form action="/tweets/new" method="post" axlength="140">
+          <input type="text" name="tweet[content]" value="">
+          <input type="submit" value="Tweet">
+        </form>
+      <div>
+    <% else %>
+      <a href="/follow/<%= "#{@profile_owner.id}" %>"> +Follow </a>
+    <% end %>
+
+    <br>
+      <%= erb :'/partials/search' %>
+
+    <br>
+
+    <div>
+      <p>Tweets by: <%= @profile_owner.email %></p>
+
+      <% if @profile_owner.tweets != nil %>
+        <% @profile_owner.tweets.reverse.each do |tweet| %>
+          <p><%= tweet.content %></p>
+        <% end %>
+      <% else %>
+        <p>You have no tweets currently, why don't you go and make one right now...</p>
+      <% end %>
+    </div>
+
+
+  </div>
+
+  <div>
+    You are following:
+    <% @profile_owner.leaders.each do |leader|  %>
+    <ul>
+      <li> <a href="/users/<%= "#{leader.leader_id}" %>"> <%= leader.leaders_email %> </a> </li>
+    </ul>
+    <% end %>
+  </div>
+  <br>
+
+  <div>
+    People following you:
+    <% @profile_owner.followers.each do |follower|  %>
+    <ul>
+      <li> <a href="/users/<%= "#{follower.follower_id}" %>"> <%= follower.followers_email %> </a> </li>
+    </ul>
+    <% end %>
+  </div>
+  <br>
+
+  <p>Done with all the fun?</p>
+  <a href="/logout">Log Out</a>
+
+
+</div>

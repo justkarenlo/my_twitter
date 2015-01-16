@@ -1,17 +1,40 @@
 get '/profile' do
-  if user_logged_in?
-  @user = User.find(session['user_id'])
-  erb :'profile/index'
-  else
-    redirect '/login'
-  end
+    redirect "/users/#{session['user_id']}"
 end
 
-post '/profile/new' do
+get '/users/:id' do
   if user_logged_in?
-    @tweet = Tweet.new(params[:tweet])
-    redirect '/profile'
+    @user = User.find(session['user_id'])
   else
-    redirect '/login'
+    @user = User.new(email: 'Not Logged In')
   end
+  @profile_owner = User.find(params[:id])
+  erb :'profile/profile_page'
 end
+
+get '/follow/:id' do
+  if user_logged_in?
+    @user = User.find(session['user_id'])
+    @user.follow(params[:id])
+
+    redirect "/users/#{session['user_id']}"
+  end
+
+end
+
+get '/search' do
+  @result = User.find_by_email(params[:email])
+
+
+  erb :'/profile/search_results'
+
+end
+### I don't think this actually works right now. ctg ###
+# post '/profile/new' do
+#   if user_logged_in?
+#     @tweet = Tweet.new(params[:tweet])
+#     redirect '/profile'
+#   else
+#     redirect '/login'
+#   end
+# end

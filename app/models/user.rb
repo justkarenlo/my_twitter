@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def follow(user_id)
+    Follower.create(follower_id: self.id, leader_id: user_id)
+  end
+
 end
