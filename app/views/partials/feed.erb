@@ -1,0 +1,10 @@
+<div>
+  <h2>Twitter Feed (the profile owner's friend's tweets)</h2>
+
+  <% @follower_tweets = @user.leaders.map {|leader| leader.leader}.map {|id| Tweet.where(user_id: id)}%>
+  <% @follower_tweets.flatten.each do |tweet| %>
+    <ul>
+      <li><%= tweet.content %></li>
+    </ul>
+  <% end %>
+</div>
